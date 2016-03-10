@@ -79,9 +79,9 @@ public:
 		return M_res;
 	}
 
-	Matrix operator [] (int i){
+	Matrix operator [] (int k){
 		Matrix o;
-		for (int i = n - 1; i < n; i++)
+		for (int i = k - 1; i < k; i++)
 		for (int j = 0; j < m; j++)
 			cout << p[i][j] << " ";
 		return o;
@@ -155,7 +155,7 @@ int main(){
 			else cout << "error" << "\n";
 		}
 		if (x == 4){
-			int n, m, i;
+			int n, m, k;
 			cout << "n="; cin >> n;
 			cout << "m="; cin >> m;
 			Matrix M(n, m);
@@ -163,7 +163,7 @@ int main(){
 			cout << "name of file:";  cin >> c;
 			M.set_matrix(c);
 			M.print();
-			cout << "i="; cin >> i;
+			cout << "k="; cin >> k;
 			M[i];
 		}
 		if (x == 5){
