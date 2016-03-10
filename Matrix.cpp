@@ -167,7 +167,7 @@ int main(){
 			M[i];
 		}
 		if (x == 5){
-			int n, m, i;
+			int n, m;
 			cout << "n="; cin >> n;
 			cout << "m="; cin >> m;
 			Matrix M(n, m);
@@ -178,7 +178,7 @@ int main(){
 			M.getnumstr();
 		}
 		if (x == 6){
-			int n, m, i;
+			int n, m;
 			cout << "n="; cin >> n;
 			cout << "m="; cin >> m;
 			Matrix M(n, m);
