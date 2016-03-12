@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
 	int x; char c[10];
-	cout << "set_=1, sum=2, mult=3, getstr=4, getnumstr=5, getnumcol=6, prisv=7, exit=0" << "\n";
+	cout << "set_=1, sum=2, mult=3, getstr=4, getnumstr=5, getnumcol=6, exit=0" << "\n";
 	do{
 		cout << "x="; cin >> x;
 		if (x == 1){
@@ -90,18 +90,6 @@ int main(){
 			M.set_matrix(c);
 			M.print();
 			cout<<M.getnumcol();
-		}
-		if (x == 7){
-			int n, m;
-			cout << "n="; cin >> n;
-			cout << "m="; cin >> m;
-			Matrix M(n, m);
-			char c[10];
-			cout << "name of file:";  cin >> c;
-			M.set_matrix(c);
-			M.print();
-			Matrix M1;
-			M1 = M;
 		}
 		system("pause");
 	} while (x);
