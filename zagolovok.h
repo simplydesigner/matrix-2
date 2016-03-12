@@ -53,7 +53,7 @@ public:
 		}
 	}
 
-	Matrix operator +(Matrix &M2){
+	Matrix operator +(const Matrix &M2){
 		Matrix M_res(M2.n, M2.m);
 		for (int i = 0; i < M2.n; i++)
 		for (int j = 0; j < M2.m; j++)
@@ -61,7 +61,7 @@ public:
 		cout << "M1+M2:\n";  M_res.print();
 		return M_res;
 	}
-	Matrix operator *(Matrix &M2){
+	Matrix operator *(const Matrix &M2){
 		Matrix M_res(n, M2.m);
 		for (int i = 0; i < n; i++)
 		for (int j = 0; j < M2.m; j++)
@@ -75,11 +75,8 @@ public:
 	}
 
 	int* operator [] (int k){
-		int *r=new int(m);
-		for (int i = k - 1; i < k; i++)
-		for (int j = 0; j < m; j++)
-			r[j] = p[i][j];
-		return r;
+
+		return *&p[k-1];
 	}
 
 	int getnumstr(){
@@ -91,9 +88,7 @@ public:
 	}
 
 	Matrix& operator = (Matrix M){
-		Matrix &M_res = M;
-		M_res.print();
-		return M_res;
+		return *&M;
 	}
 
 private:
