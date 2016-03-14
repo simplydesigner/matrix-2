@@ -19,7 +19,7 @@ public:
 				p[i][j] = M.p[i][j];
 		}
 	}
-
+		
 	~Matrix()
 	{
 		if (p != nullptr)
@@ -75,8 +75,11 @@ public:
 	}
 
 	int* operator [] (int k){
-
-		return *&p[k-1];
+		int *r = new int[m];
+		for (int j = 0; j < m; j++){
+			r[j] = p[k][j];
+		}
+		return r;
 	}
 
 	int getnumstr(){
@@ -87,8 +90,19 @@ public:
 		return m;
 	}
 
-	Matrix& operator = (Matrix M){
-		return *&M;
+	Matrix& operator = (const Matrix &M){
+		for (int i = 0; i < n; i++){
+			delete[] p[i];
+		}
+		delete[] p;
+		n = M.n;
+		m = M.m;
+		p = new int*[n];
+		for (int i = 0; i < n; i++){
+			p[i] = new int[m];
+			for (int j = 0; j < m; j++) { p[i][j] = M.p[i][j]; }
+		}
+		return *this;
 	}
 
 private:
