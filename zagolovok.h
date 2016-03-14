@@ -32,7 +32,7 @@ public:
 		}
 	}
 
-	int set_matrix(char* a){
+	void set_matrix(char* a){
 		ifstream fin;
 		fin.open(a);
 		if (!fin.is_open()) {
@@ -42,7 +42,6 @@ public:
 			for (int j = 0; j < m; j++)
 				fin >> p[i][j];
 		}
-		return 0;
 	}
 
 	void print(){
@@ -91,17 +90,19 @@ public:
 	}
 
 	Matrix& operator = (const Matrix &M){
-		for (int i = 0; i < n; i++){
-			delete[] p[i];
+		if (p != nullptr){
+			for (int i = 0; i < n; i++){
+				delete[] p[i];
+			}
+			delete[] p;
 		}
-		delete[] p;
-		n = M.n;
-		m = M.m;
-		p = new int*[n];
-		for (int i = 0; i < n; i++){
-			p[i] = new int[m];
-			for (int j = 0; j < m; j++) { p[i][j] = M.p[i][j]; }
-		}
+			n = M.n;
+			m = M.m;
+			p = new int*[n];
+			for (int i = 0; i < n; i++){
+				p[i] = new int[m];
+				for (int j = 0; j < m; j++) { p[i][j] = M.p[i][j]; }
+			}
 		return *this;
 	}
 
